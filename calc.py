@@ -1,4 +1,4 @@
-gitHub = "https://github.com/your_username/your_repository"
+gitHub = "https://github.com/fleay1337/calculator"
 
 def get_number(prompt):
     """Функция безопасного ввода числа."""
@@ -18,35 +18,35 @@ def get_operation():
         print("Ошибка: Выберите одну из операций (+, -, *, /).")
 
 
-def calculate(num1, num2, operation):
+def calculate(x, y, operation):
     """Выполнение вычисления."""
     if operation == "+":
-        return num1 + num2
+        return x + y
     if operation == "-":
-        return num1 - num2
+        return x - y
     if operation == "*":
-        return num1 * num2
+        return x * y
     if operation == "/":
-        if num2 == 0:
+        if y == 0:
             return None
-        return num1 / num2
+        return x / y
 
 
 def main():
     history = []
 
     while True:
-        num1 = get_number("Введите первое число: ")
+        x = get_number("Введите первое число: ")
         operation = get_operation()
-        num2 = get_number("Введите второе число: ")
+        y = get_number("Введите второе число: ")
 
-        result = calculate(num1, num2, operation)
+        result = calculate(x, y, operation)
 
         if result is None:
             print("Ошибка: Деление на ноль.")
         else:
             print(f"Результат: {result}")
-            history.append(f"{num1} {operation} {num2} = {result}")
+            history.append(f"{x} {operation} {y} = {result}")
 
         while True:
             choice = input("Хотите продолжить? (да/нет): ").strip().lower()
